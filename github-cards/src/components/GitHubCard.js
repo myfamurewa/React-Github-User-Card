@@ -3,7 +3,7 @@ import React from 'react'
 export default function GitHubCard(props) {
     return (
         <div className="card">
-            <img src={props.user.avatar_url} alt={`${props.user.name}'s profile picture`} />
+            <img className="profile" src={props.user.avatar_url} alt={`${props.user.name}'s profile picture`} />
             <div className="card-info">
                 <h3 className="name">{props.user.name}</h3>
                  <p className="username">{props.user.login}</p>
@@ -13,7 +13,9 @@ export default function GitHubCard(props) {
                  <p>Following:{props.user.following}</p>
                  <p>{props.bio}</p>
             </div>
-            <img src={`http://ghchart.rshah.org/${props.user.login}`} alt={`${props.user.name}'s GitHub chart`}></img>
+            <div className="gitchart">
+                <img  src={`http://ghchart.rshah.org/${props.user.login}`} alt={`${props.user.name}'s GitHub chart`}></img>
+            </div>
         </div>
     )
 }

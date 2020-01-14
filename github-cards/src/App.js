@@ -41,11 +41,13 @@ class App extends React.Component {
 
   render() {
   return (
-    <div>
+    <div className="container">
+    <div className="cards">
     <GitHubCard user={this.state.user} />
     {this.state.follower.map(user => (
       <GitHubCard key={user.id} user={user} />
     ))}
+    </div>
     </div>
   );
   }
