@@ -114,3 +114,20 @@ body {
   max-width: 100%;
   object-fit: scale-down;
 }
+
+.card .guest{
+  background: linear-gradient(135deg, #f6f8fa 0%, #0366d6 100%);
+}
+
+input{
+  border-radius: 20px;
+  border: none;
+}
+button{
+  border-radius: 20px;
+  border: none;
+  background-color: #0366d6;
+  color: white;
+  padding: 1%;
+  margin: 1%;
+}
