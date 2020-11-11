@@ -14,31 +14,6 @@ class App extends React.Component {
       guestfollower: []
     }
   }
-  componentDidMount() {
-    axios.get(`https://api.github.com/users/viscountfam`)
-      .then(response => {
-        console.log("User Response", response)
-        this.setState({
-          user: response.data
-        })
-      })
-      .catch(err => {
-        console.log("An error has occurred", err)
-      })
-    axios.get('https://api.github.com/users/viscountfam/followers')
-    .then(response => {
-      console.log("follower initial response", response);
-      response.data.forEach(item => {
-        axios.get( `https://api.github.com/users/${item.login}`)
-      .then(res => {
-      console.log("follower full response set", this.state.follower);
-      this.setState({
-        follower: [...this.state.follower, res.data]
-      })
-    });
-      })
-    })
-  }
 
   findUser = e => {
     e.preventDefault();
@@ -72,6 +47,7 @@ class App extends React.Component {
   render() {
   return (
     <div className="container">
+      <h1>Enter a github</h1>
       <input
           type="text"
           value={this.state.userText}
@@ -79,7 +55,6 @@ class App extends React.Component {
         />
       <button onClick={this.findUser}>find user</button>
     <div className="cards">
-    <GitHubCard user={this.state.user} />
     <GitHubCard className="guest" user={this.state.guestUser} />
     {this.state.follower.map(user => (
       <GitHubCard key={user.id} user={user} />
